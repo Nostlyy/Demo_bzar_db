@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" spacing="13.0" styleClass="page" stylesheets="@style.css" fx:controller="pe.edu.upeu.project_final_gp1.controller.FlujoCajaController">
+  <padding>
+    <Insets top="20.0" right="22.0" bottom="20.0" left="22.0"/>
+  </padding>
+  <children>
+    <HBox alignment="CENTER_LEFT" spacing="12.0">
+      <children>
+        <VBox spacing="3.0" HBox.hgrow="ALWAYS">
+          <children>
+            <Label text="Caja y egresos" styleClass="page-title"/>
+            <Label fx:id="lblFecha" text="Resumen del día" styleClass="page-subtitle"/>
+          </children>
+        </VBox>
+        <Button text="Actualizar resumen" onAction="#handleActualizar" styleClass="button-secondary"/>
+      </children>
+    </HBox>
+    <HBox spacing="12.0" alignment="CENTER">
+      <children>
+        <VBox styleClass="metric-card" HBox.hgrow="ALWAYS" spacing="8.0">
+          <children>
+            <Label text="INGRESOS DEL DÍA" styleClass="eyebrow"/>
+            <Label fx:id="lblIngresos" text="S/ 0.00" textFill="#2D805C">
+              <font>
+                <Font name="System Bold" size="22.0"/>
+              </font>
+            </Label>
+            <Label text="Dinero efectivamente recibido" styleClass="muted-label"/>
+          </children>
+        </VBox>
+        <VBox styleClass="metric-card" HBox.hgrow="ALWAYS" spacing="8.0">
+          <children>
+            <Label text="EGRESOS DEL DÍA" styleClass="eyebrow"/>
+            <Label fx:id="lblEgresos" text="S/ 0.00" textFill="#B54747">
+              <font>
+                <Font name="System Bold" size="22.0"/>
+              </font>
+            </Label>
+            <Label text="Gastos registrados" styleClass="muted-label"/>
+          </children>
+        </VBox>
+        <VBox styleClass="metric-card" HBox.hgrow="ALWAYS" spacing="8.0">
+          <children>
+            <Label text="SALDO NETO" styleClass="eyebrow"/>
+            <Label fx:id="lblNeto" text="S/ 0.00" textFill="#014074">
+              <font>
+                <Font name="System Bold" size="22.0"/>
+              </font>
+            </Label>
+            <Label text="Ingresos menos egresos" styleClass="muted-label"/>
+          </children>
+        </VBox>
+      </children>
+    </HBox>
+    <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="section-card">
+      <children>
+        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+          <children>
+            <Label text="Deuda total pendiente de cobro" styleClass="muted-label"/>
+            <Label fx:id="lblDeudaPendiente" text="S/ 0.00" textFill="#014074">
+              <font>
+                <Font name="System Bold" size="21.0"/>
+              </font>
+            </Label>
+          </children>
+        </VBox>
+        <Label text="La deuda pendiente no cuenta como ingreso hasta recibir el pago." textFill="#65717C" wrapText="true" maxWidth="300.0"/>
+      </children>
+    </HBox>
+    <VBox spacing="9.0" styleClass="section-card">
+      <children>
+        <Label text="Registrar un gasto" styleClass="section-heading"/>
+        <HBox alignment="CENTER_LEFT" spacing="10.0">
+          <children>
+            <TextField fx:id="txtDescripcion" promptText="¿En qué se gastó?" HBox.hgrow="ALWAYS"/>
+            <Label text="Monto (S/):"/>
+            <TextField fx:id="txtMonto" promptText="0.00" prefWidth="115.0"/>
+            <Button text="+ Registrar egreso" onAction="#handleRegistrarEgreso" styleClass="button-login"/>
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+    <VBox spacing="7.0" styleClass="section-card" VBox.vgrow="ALWAYS">
+      <children>
+        <Label text="Gastos registrados hoy" styleClass="section-heading"/>
+        <TableView fx:id="tableEgresos" minHeight="170.0" VBox.vgrow="ALWAYS">
+          <columns>
+            <TableColumn fx:id="colEgresoFecha" text="Fecha" prefWidth="120.0"/>
+            <TableColumn fx:id="colEgresoDescripcion" text="Descripción" prefWidth="400.0"/>
+            <TableColumn fx:id="colEgresoMonto" text="Monto (S/)" prefWidth="140.0"/>
+          </columns>
+          <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+          </columnResizePolicy>
+        </TableView>
+      </children>
+    </VBox>
+  </children>
+</VBox>

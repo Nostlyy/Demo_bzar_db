@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" spacing="10.0" styleClass="page" stylesheets="@style.css" fx:controller="pe.edu.upeu.project_final_gp1.controller.VentaController">
+  <padding>
+    <Insets top="17.0" right="20.0" bottom="15.0" left="20.0"/>
+  </padding>
+  <children>
+    <HBox alignment="CENTER_LEFT" spacing="12.0">
+      <children>
+        <VBox spacing="3.0" HBox.hgrow="ALWAYS">
+          <children>
+            <Label text="Punto de venta" styleClass="page-title"/>
+            <Label text="Arma el carrito, identifica al cliente y registra su compra." styleClass="page-subtitle"/>
+          </children>
+        </VBox>
+        <Label text="VENTA / BOLETA" styleClass="hero-chip"/>
+      </children>
+    </HBox>
+    <VBox spacing="8.0" styleClass="section-card">
+      <children>
+        <HBox alignment="CENTER_LEFT" spacing="10.0">
+          <children>
+            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+              <children>
+                <Label text="Ficha del cliente" styleClass="section-heading"/>
+                <Label text="Escribe el nombre, una inicial o el DNI para recuperar automáticamente los datos guardados." styleClass="muted-label" wrapText="true"/>
+              </children>
+            </VBox>
+            <Label text="CLIENTES GUARDADOS" styleClass="eyebrow"/>
+          </children>
+        </HBox>
+        <GridPane hgap="10.0" vgap="5.0">
+          <columnConstraints>
+            <ColumnConstraints minWidth="52.0"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="120.0"/>
+            <ColumnConstraints minWidth="36.0"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="85.0"/>
+            <ColumnConstraints minWidth="55.0"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="85.0"/>
+          </columnConstraints>
+          <children>
+            <Label text="Cliente" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="txtCliente" promptText="Nombre o iniciales..." GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Label text="DNI" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+            <TextField fx:id="txtDniCliente" promptText="DNI / código" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+            <Label text="Teléfono" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+            <TextField fx:id="txtTelefonoCliente" promptText="Opcional" GridPane.columnIndex="5" GridPane.rowIndex="0"/>
+          </children>
+        </GridPane>
+        <HBox alignment="CENTER_LEFT" spacing="8.0">
+          <children>
+            <Label text="La ficha se conserva para las próximas compras." styleClass="muted-label"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Guardar ficha" onAction="#handleGuardarCliente" styleClass="button-action-edit"/>
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+    <HBox alignment="CENTER_LEFT" spacing="9.0" styleClass="section-card">
+      <children>
+        <VBox spacing="3.0" HBox.hgrow="ALWAYS">
+          <children>
+            <Label text="Añadir productos" styleClass="section-heading"/>
+            <ComboBox fx:id="cmbProducto" promptText="Buscar o seleccionar artículo del inventario" maxWidth="Infinity"/>
+          </children>
+        </VBox>
+        <VBox spacing="3.0">
+          <children>
+            <Label text="Cantidad" styleClass="muted-label"/>
+            <TextField fx:id="txtCantidad" text="1" prefWidth="75.0"/>
+          </children>
+        </VBox>
+        <Button text="+ Agregar al carrito" onAction="#handleAgregarProducto" styleClass="button-login">
+          <HBox.margin>
+            <Insets top="18.0"/>
+          </HBox.margin>
+        </Button>
+      </children>
+    </HBox>
+    <VBox spacing="7.0" styleClass="section-card" VBox.vgrow="ALWAYS">
+      <children>
+        <HBox alignment="CENTER_LEFT">
+          <children>
+            <Label text="Carrito de compra" styleClass="section-heading"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Revisa cantidades antes de cobrar" styleClass="muted-label"/>
+          </children>
+        </HBox>
+        <TableView fx:id="tableCarrito" prefHeight="125.0" minHeight="100.0" VBox.vgrow="ALWAYS">
+          <columns>
+            <TableColumn fx:id="colCarritoProducto" text="Producto" prefWidth="250.0"/>
+            <TableColumn fx:id="colCarritoCantidad" text="Cant." prefWidth="70.0"/>
+            <TableColumn fx:id="colCarritoPrecio" text="Precio unitario" prefWidth="115.0"/>
+            <TableColumn fx:id="colCarritoSubtotal" text="Subtotal" prefWidth="120.0"/>
+          </columns>
+          <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+          </columnResizePolicy>
+        </TableView>
+      </children>
+    </VBox>
+    <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="checkout-bar">
+      <children>
+        <VBox spacing="1.0">
+          <children>
+            <Label text="TOTAL A PAGAR" styleClass="total-label"/>
+            <Label fx:id="lblTotal" text="S/ 0.00" styleClass="total-value"/>
+          </children>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <VBox spacing="3.0">
+          <children>
+            <Label text="Forma de pago" styleClass="muted-label"/>
+            <ComboBox fx:id="cmbTipoPago" prefWidth="112.0"/>
+          </children>
+        </VBox>
+        <VBox spacing="3.0">
+          <children>
+            <Label text="Pago inicial (S/)" styleClass="muted-label"/>
+            <TextField fx:id="txtPagoInicial" text="0.00" prefWidth="105.0"/>
+          </children>
+        </VBox>
+        <Button text="Quitar línea" onAction="#handleQuitarProducto" styleClass="button-secondary"/>
+        <Button text="Limpiar" onAction="#handleLimpiarVenta" styleClass="button-secondary"/>
+        <Button text="Registrar venta y boleta" onAction="#handleRegistrarVenta" styleClass="button-login"/>
+      </children>
+    </HBox>
+    <VBox spacing="6.0" styleClass="section-card" VBox.vgrow="ALWAYS">
+      <children>
+        <HBox alignment="CENTER_LEFT">
+          <children>
+            <Label text="Ventas recientes" styleClass="section-heading"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Historial de operaciones registradas" styleClass="muted-label"/>
+          </children>
+        </HBox>
+        <TableView fx:id="tableVentas" prefHeight="115.0" minHeight="85.0" VBox.vgrow="ALWAYS">
+          <columns>
+            <TableColumn fx:id="colVentaId" text="N°" prefWidth="55.0"/>
+            <TableColumn fx:id="colVentaFecha" text="Fecha" prefWidth="100.0"/>
+            <TableColumn fx:id="colVentaCliente" text="Cliente" prefWidth="190.0"/>
+            <TableColumn fx:id="colVentaTotal" text="Total" prefWidth="90.0"/>
+            <TableColumn fx:id="colVentaPagado" text="Pagado" prefWidth="90.0"/>
+            <TableColumn fx:id="colVentaSaldo" text="Saldo" prefWidth="90.0"/>
+            <TableColumn fx:id="colVentaTipo" text="Pago" prefWidth="90.0"/>
+          </columns>
+          <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+          </columnResizePolicy>
+        </TableView>
+      </children>
+    </VBox>
+  </children>
+</VBox>

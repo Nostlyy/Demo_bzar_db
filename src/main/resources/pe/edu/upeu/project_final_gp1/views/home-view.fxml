@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" spacing="18.0" styleClass="page" stylesheets="@style.css">
+  <padding>
+    <Insets top="25.0" right="27.0" bottom="22.0" left="27.0"/>
+  </padding>
+  <children>
+    <HBox alignment="CENTER_LEFT" styleClass="dashboard-hero" spacing="20.0">
+      <children>
+        <VBox spacing="9.0" HBox.hgrow="ALWAYS">
+          <children>
+            <Label text="NEGOCIO MAS ORGANIZADO" styleClass="hero-chip" maxWidth="220.0"/>
+            <Label text="TODO EL BAZAR, BAJO CONTROL." styleClass="hero-title" wrapText="true"/>
+            <Label text="Controla productos, registra ventas, recupera los datos de los clientes y mantén las cuentas claras." styleClass="hero-text" wrapText="true" maxWidth="640.0"/>
+          </children>
+        </VBox>
+        <VBox alignment="CENTER" spacing="2.0" minWidth="112.0">
+          <children>
+            <Label text="BD" textFill="#EFA30E">
+              <font>
+                <Font name="System Bold" size="47.0"/>
+              </font>
+            </Label>
+            <Label text="PUNTO DE VENTA" textFill="#E4EDF4">
+              <font>
+                <Font name="System Bold" size="9.0"/>
+              </font>
+            </Label>
+          </children>
+        </VBox>
+      </children>
+    </HBox>
+    <VBox spacing="4.0">
+      <children>
+        <Label text="OPERACIONES DE LA TIENDA" styleClass="page-title"/>
+        <Label text="" styleClass="page-subtitle"/>
+      </children>
+    </VBox>
+    <GridPane hgap="14.0" vgap="14.0" VBox.vgrow="ALWAYS">
+      <columnConstraints>
+        <ColumnConstraints percentWidth="50.0"/>
+        <ColumnConstraints percentWidth="50.0"/>
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints vgrow="ALWAYS"/>
+        <RowConstraints vgrow="ALWAYS"/>
+      </rowConstraints>
+      <children>
+        <VBox styleClass="module-card" spacing="10.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+          <children>
+            <Label text="01  /  EXISTENCIAS" styleClass="module-number"/>
+            <Label text="Inventario y productos" styleClass="module-title"/>
+            <Label text="Registra artículos, actualiza precios y verifica el stock disponible para evitar vender productos agotados." styleClass="module-desc" wrapText="true"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label text="Catálogo · Precios · Stock" textFill="#496278">
+              <font>
+                <Font name="System Bold" size="11.0"/>
+              </font>
+            </Label>
+          </children>
+        </VBox>
+        <VBox styleClass="module-card" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+          <children>
+            <Label text="02  /  PUNTO DE VENTA" styleClass="module-number"/>
+            <Label text="Ventas y boletas" styleClass="module-title"/>
+            <Label text="Agrega varios productos, calcula el total, controla el pago y genera una boleta interna para cada operación." styleClass="module-desc" wrapText="true"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label text="Carrito · Contado · Crédito" textFill="#496278">
+              <font>
+                <Font name="System Bold" size="11.0"/>
+              </font>
+            </Label>
+          </children>
+        </VBox>
+        <VBox styleClass="module-card" spacing="10.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+          <children>
+            <Label text="03  /  CLIENTES" styleClass="module-number"/>
+            <Label text="Clientes y deudas" styleClass="module-title"/>
+            <Label text="Conserva las fichas de clientes y encuentra sus datos escribiendo el nombre, sus iniciales o el DNI." styleClass="module-desc" wrapText="true"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label text="Ficha permanente · Abonos" textFill="#496278">
+              <font>
+                <Font name="System Bold" size="11.0"/>
+              </font>
+            </Label>
+          </children>
+        </VBox>
+        <VBox styleClass="module-card" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+          <children>
+            <Label text="04  /  FINANZAS" styleClass="module-number"/>
+            <Label text="Caja y egresos" styleClass="module-title"/>
+            <Label text="Consulta ingresos reales, registra los gastos del negocio y revisa el saldo diario y las deudas pendientes." styleClass="module-desc" wrapText="true"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label text="Ingresos · Gastos · Saldo" textFill="#496278">
+              <font>
+                <Font name="System Bold" size="11.0"/>
+              </font>
+            </Label>
+          </children>
+        </VBox>
+      </children>
+    </GridPane>
+    <HBox alignment="CENTER_LEFT" spacing="9.0">
+      <children>
+        <Label text="" textFill="#EFA30E"/>
+        <Label text="" styleClass="page-subtitle" wrapText="true"/>
+      </children>
+    </HBox>
+  </children>
+</VBox>

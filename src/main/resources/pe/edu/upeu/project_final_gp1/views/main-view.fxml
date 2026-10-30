@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" prefHeight="850.0" prefWidth="1280.0" stylesheets="@style.css" fx:controller="pe.edu.upeu.project_final_gp1.controller.MainController">
+  <top>
+    <HBox alignment="CENTER_LEFT" spacing="14.0" prefHeight="72.0" styleClass="topbar">
+      <children>
+        <StackPane styleClass="brand-mark">
+          <children>
+            <Label text="DB" styleClass="brand-mark-text"/>
+          </children>
+        </StackPane>
+        <VBox spacing="2.0">
+          <children>
+            <Label text="DEMO BAZAR" styleClass="brand-name"/>
+            <Label text="GESTIÓN COMERCIAL Y PUNTO DE VENTA" styleClass="brand-caption"/>
+          </children>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label text="● SISTEMA LOCAL" styleClass="store-status"/>
+        <VBox alignment="CENTER_RIGHT" spacing="2.0">
+          <children>
+            <Label text="Panel administrativo" styleClass="topbar-user"/>
+            <Label text="Inventario · Ventas · Caja" styleClass="muted-label"/>
+          </children>
+          <HBox.margin>
+            <Insets left="14.0"/>
+          </HBox.margin>
+        </VBox>
+      </children>
+    </HBox>
+  </top>
+  <left>
+    <VBox prefWidth="228.0" spacing="5.0" styleClass="sidebar">
+      <padding>
+        <Insets top="22.0" right="12.0" bottom="18.0" left="12.0"/>
+      </padding>
+      <children>
+        <Label text="MENÚ PRINCIPAL" styleClass="nav-section">
+          <VBox.margin>
+            <Insets left="12.0" bottom="9.0"/>
+          </VBox.margin>
+        </Label>
+        <Button maxWidth="Infinity" onAction="#showHome" styleClass="nav-button" text="   Inicio / Resumen"/>
+        <Separator>
+          <VBox.margin>
+            <Insets top="10.0" bottom="12.0" left="8.0" right="8.0"/>
+          </VBox.margin>
+        </Separator>
+        <Label text="OPERACIONES DE TIENDA" styleClass="nav-section">
+          <VBox.margin>
+            <Insets left="12.0" bottom="9.0"/>
+          </VBox.margin>
+        </Label>
+        <Button maxWidth="Infinity" onAction="#showProductos" styleClass="nav-button" text="   Inventario y productos"/>
+        <Button maxWidth="Infinity" onAction="#showVentas" styleClass="nav-button" text="  Ventas y boletas"/>
+        <Button maxWidth="Infinity" onAction="#showDeudores" styleClass="nav-button" text="   Clientes y deudas"/>
+        <Button maxWidth="Infinity" onAction="#showFlujoCaja" styleClass="nav-button" text="   Caja y egresos"/>
+        <Region VBox.vgrow="ALWAYS"/>
+        <VBox spacing="5.0" styleClass="sidebar-note">
+          <children>
+            <Label text="CAJA ORGANIZADA" textFill="#EFA30E">
+              <font>
+                <Font name="System Bold" size="10.0"/>
+              </font>
+            </Label>
+            <Label text="Tus productos, ventas y clientes en un solo lugar." wrapText="true" styleClass="muted-label"/>
+          </children>
+        </VBox>
+        <Label text="BAZAR DEMO  ·  SISTEMA LOCAL" styleClass="sidebar-footer">
+          <VBox.margin>
+            <Insets left="7.0" top="13.0"/>
+          </VBox.margin>
+        </Label>
+      </children>
+    </VBox>
+  </left>
+  <center>
+    <VBox>
+      <children>
+        <StackPane fx:id="contentArea" styleClass="content-area" VBox.vgrow="ALWAYS">
+          <children>
+            <Label text="Selecciona un módulo del menú" textFill="#737F8B"/>
+          </children>
+        </StackPane>
+        <HBox alignment="CENTER_LEFT" prefHeight="27.0" styleClass="app-footer">
+          <children>
+            <Label text="BAZAR DEMO  /  Gestión de tienda" styleClass="muted-label"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Datos guardados localmente en SQLite" styleClass="muted-label"/>
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+  </center>
+</BorderPane>
